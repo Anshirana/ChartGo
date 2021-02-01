@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title> USER SIGNIN</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/signin.css">
+    <script src="javascripts/signin.js"></script>
+</head>
+
+<body>
+    <div class="card">
+        <% include ./partials/messages %>
+        <div class="card-header">
+            <h1>Sign In</h1>
+            <p>Sign in to your account</p>
+        </div>
+        <div class="card-body">
+            <form class="needs-validation" method="POST" action="/signin" id="signin-form" novalidate>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email"
+                        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" class="form-control"
+                        placeholder="Enter email" id="email" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Enter a valid email.</div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Enter password"
+                        pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" id="password" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Must have 1 uppecase and lowercase letter, Minimum 8 Characters and 1
+                        special Character</div>
+                </div>
+                <input class="btn btn-primary btn-block mt-5 mb-3" type="submit" value="Sign In">
+            </form>
+            <p>
+                Don't have an account?
+                <a href="/signup">
+                    <button type="button" class="btn btn-sm">Sign Up</button>
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Line Chart</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/line.css' />
+    <link rel='stylesheet' href='/stylesheets/nav.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <script src="/javascripts/line.js"></script>
+</head>
+
+<body>
+
+    <!--NAVBAR-->
+    <% include partials/nav %>
+    <!--Bar Chart-->
+    <div class="card barchart">
+        <div class="card-header">
+            <h1>Line Chart</h1>
+            <p>Customize your visualization</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6 inputType">
+                    <div class="heading">
+                        <h3>Insert</h3>
+                    </div>
+                    <form class="needs-validation" id="barchart" novalidate>
+                        <div class="form-group">
+                            <label for="charTitle">Chart Title</label>
+                            <input type="text" name="title" id="barTitle" class="form-control" pattern="^\w{1,30}$"
+                                placeholder="Enter Chart Title" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter a valid title.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="label">Label</label>
+                            <input type="text" name="label" id="label" class="form-control" id="label"
+                                pattern="^\w{1,30}$" placeholder="Enter a label" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Enter a valid label.</div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="charTitle">Height</label>
+                                <input class="form-control" type="number" id="height" name="height" step="1" min="0"
+                                    max="1000" pattern="^[0-9]{0,1000}$" placeholder="Select Height" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Enter a valid height.</div>
+                            </div>
+                            <div class="col">
+                                <label for="charTitle">Width</label>
+                                <input class="form-control" type="number" id="width" name="width" step="1" min="0"
+                                    max="1000" pattern="^[0-9]{0,1000}$" placeholder="Select Width" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Enter a valid width.</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="charTitle">X - Value</label>
+                                <br\>
+                                    <div class="category">
+                                        <input class="form-control" pattern="^[a-zA-Z_ ]*$" name="f" id="f" type="text"
+                                            placeholder="Category 1" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Category-1.</div>
+                                    </div>
+                                    <div class="category">
+                                        <input class="form-control" pattern="^[a-zA-Z_ ]*$" name="g" id="g" type="text"
+                                            placeholder="Category 2" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Category-2.</div>
+                                    </div>
+                                    <div class="category">
+                                        <input class="form-control" pattern="^[a-zA-Z_ ]*$" name="h" id="h" type="text"
+                                            placeholder="Category 3" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Category-3.</div>
+                                    </div>
+                                    <div class="category">
+                                        <input class="form-control" pattern="^[a-zA-Z_ ]*$" name="i" id="i" type="text"
+                                            placeholder="Category 4" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Category-4.</div>
+                                    </div>
+                                    <div class="category">
+                                        <input class="form-control" pattern="^[a-zA-Z_ ]*$" name="j" id="j" type="text"
+                                            placeholder="Category 5" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Category-5.</div>
+                                    </div>
+                            </div>
+                            <div class="col">
+                                <label for="charTitle">Y - Value</label>
+                                <br\>
+                                    <div class="value">
+                                        <input class="form-control" pattern="^[0-9]{100}*$" name="a" id="a"
+                                            type="number" placeholder="Value 1" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Value-1.</div>
+                                    </div>
+                                    <div class="value">
+                                        <input class="form-control" pattern="^[0-9]{100}*$" name="b" id="b"
+                                            type="number" placeholder="Value 2" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Value-2.</div>
+                                    </div>
+                                    <div class="value">
+                                        <input class="form-control" pattern="^[0-9]{100}*$" name="c" id="c"
+                                            type="number" placeholder="Value 3" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Value-3.</div>
+                                    </div>
+                                    <div class="value">
+                                        <input class="form-control" pattern="^[0-9]{100}*$" name="d" id="d"
+                                            type="number" placeholder="Value 4" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Value-4.</div>
+                                    </div>
+                                    <div class="value">
+                                        <input class="form-control" pattern="^[0-9]{100}*$" name="e" id="e"
+                                            type="number" placeholder="Value 5" required>
+                                        <div class="valid-feedback">Valid.</div>
+                                        <div class="invalid-feedback">Enter a valid Value-5.</div>
+                                    </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <input class="btn btn-primary btn-block" id="insertChart" type="button" value="Create Chart">
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <div class="heading">
+                        <h3>Upload <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom"
+                                title="CSV only contains Column-1 of Category and Column-2 with corresponding value"></i>
+                        </h3>
+                    </div>
+                    <div class="form">
+                        <form class="needs-validation" method="POST" action="/line" id="barchart"
+                            enctype="multipart/form-data" novalidate>
+                            <div class="form-group">
+                                <label for="charTitle">Chart Title</label>
+                                <input type="text" name="title" id="barTitle1" class="form-control" pattern="^\w{1,30}$"
+                                    placeholder="Enter Chart Title"
+                                    value="<%= typeof title != 'undefined' ? title : '' %>" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Enter a valid title.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="label">Label</label>
+                                <input type="text" name="label" id="label" class="form-control" id="label1"
+                                    pattern="^\w{1,30}$" value="<%= typeof label != 'undefined' ? label : '' %>"
+                                    placeholder="Enter a label" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">Enter a valid label.</div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col">
+                                    <label for="charTitle">Height</label>
+                                    <input class="form-control" type="number" id="height1" name="height" step="1"
+                                        min="0" max="1000" value="<%= typeof height != 'undefined' ? height : '' %>"
+                                        pattern="^[0-9]{0,1000}$" placeholder="Select Height" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Enter a valid height.</div>
+                                </div>
+                                <div class="col">
+                                    <label for="charTitle">Width</label>
+                                    <input class="form-control" type="number" id="width1" name="width" step="1" min="0"
+                                        max="1000" value="<%= typeof width != 'undefined' ? width : '' %>"
+                                        pattern="^[0-9]{0,1000}$" placeholder="Select Width" required>
+                                    <div class="valid-feedback">Valid.</div>
+                                    <div class="invalid-feedback">Enter a valid width.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="file" class="btn btn-success btn-block">
+                                    <i class='fas fa-file'></i> Upload CSV file
+                                </label>
+                                <input name="file" type="file" id="file" accept=".csv" style="display: none;" required>
+                                <div class="valid-feedback">Valid.</div>
+                                <div class="invalid-feedback">File is required</div>
+                            </div>
+                            <hr>
+                            <input class="btn btn-primary btn-block" id="uploadChart" type="submit"
+                                value="Create Chart">
+                        </form>
+                    </div>
+                    <% var xArray = []; %>
+                    <% var yArray = []; %>
+
+                    <% if (typeof xAxisArray !== "undefined") { %>
+                    <h6 style="color: #fff;">X- Values: [<%= xArray = xAxisArray %>]</>
+                        <h6 style="color: #fff;">Y-Values: [<%= yArray = yAxisArray %>]</h6>
+                        <% } %>
+                </div>
+            </div>
+            <div id="chartContainer">
+            </div>
+        </div>
+        <canvas id="myChart" width="20" height="20" style="border-top: 2px solid #fff;"></canvas>
+        <script>
+            $('#insertChart').click(function () {
+
+                var title = '';
+                var label = '';
+
+                var height = "";
+                var width = "";
+
+                var xValueA = '';
+                var xValueB = '';
+                var xValueC = '';
+                var xValueD = '';
+                var xValueE = '';
+
+                var yLabelF = '';
+                var yLabelG = '';
+                var yLabelH = '';
+                var yLabelI = '';
+                var yLabelJ = '';
+
+                title = $("#barTitle").val();
+                label = $("#label").val();
+
+                height = $("#height").val();
+                width = $("#width").val();
+
+                xValueA = $("#a").val();
+                xValueB = $("#b").val();
+                xValueC = $("#c").val();
+                xValueD = $("#d").val();
+                xValueE = $("#e").val();
+
+                yLabelF = $("#f").val();
+                yLabelG = $("#g").val();
+                yLabelH = $("#h").val();
+                yLabelI = $("#i").val();
+                yLabelJ = $("#j").val();
+
+                var ctx = document.getElementById('myChart');
+
+                Chart.defaults.global.defaultFontSize = 16;
+                Chart.defaults.global.defaultFontColor = "#fff";
+
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: [yLabelF, yLabelG, yLabelH, yLabelI, yLabelJ],
+                        datasets: [{
+                            label: label,
+                            data: [xValueA, xValueB, xValueC, xValueD, xValueE],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: title,
+                            fontSize: 20,
+                            fontColor: "#fff",
+                        },
+                        legend: {
+                            display: true,
+                            labels: {
+                                fontColor: '#fff'
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+
+        </script>
+        <!-- <script>
+            // var allxAxis = <%= xArray %>;
+            // console.log(allxAxis);
+            $('#uploadChart').click(function () {
+
+                var title = '';
+                var label = '';
+                title =
+                    label = $("#label1").val();
+
+                height = $("#height1").val();
+                width = $("#width1").val();
+
+                var ctx = document.getElementById('myChart');
+
+                Chart.defaults.global.defaultFontSize = 16;
+                Chart.defaults.global.defaultFontColor = "#fff";
+
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: label,
+                            data: [],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                // 'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                // 'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: title,
+                            fontSize: 20,
+                            fontColor: "#fff",
+                        },
+                        legend: {
+                            display: true,
+                            labels: {
+                                fontColor: '#fff'
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+
+        </script> -->
+    </div>
+    <!--Footer-->
+    <% include partials/footer %>
+</body>
+
+</html>

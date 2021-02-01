@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Verify</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="javascripts/verify.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/verify.css">
+
+</head>
+
+<body>
+    <div class="card">
+        <% include ./partials/messages %>
+        <div class="card-header">
+            <h1>Verify</h1>
+            <p>Verify your account to Sign-In</p>
+        </div>
+        <div class="card-body">
+            <form class="needs-validation" method="POST" action="/verify" novalidate>
+                <div class="form-group">
+                    <label for="secretToken">Code</label>
+                    <input type="text" name="secretToken" class="form-control" id="secretToken" pattern="^[A-Z0-9]{6}$"
+                        placeholder="Enter 6 digit Code" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Enter a valid 6 digit code.</div>
+                </div>
+                <button class="btn btn-primary btn-block mt-5 mb-3" type="submit">Verify</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+body{
+    background-image: url(/images/picture.jpeg);    
+    background-size: 100% 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.inputType{
+    border-right: 2px solid #ffff
+}
+.form{
+    margin: 95px auto;
+    width: 100%;
+}
+.heading{
+    text-align: center;
+    color: #00448b;
+}
+.card{
+    margin: 0 auto; /* Added */
+    margin-top: 40px;
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    background-color: #000000!important;
+    width: 70rem;
+}
+.card-header{
+    border-bottom: 3px solid #fff;
+}
+h1,p{
+    text-align: center;
+    color: #78d2f2;
+}
+.card-body{
+    padding: 16px 70px!important;
+}
+label{
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-style: normal;
+}
+.btn-success{
+    border-radius: 2rem!important;
+    border: none!important;
+}
+.form-control{
+    margin-bottom: 8px;
+}

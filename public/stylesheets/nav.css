@@ -1,0 +1,53 @@
+/*--------Navigation--------*/
+#nav-bar
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.chartGo{
+    width: 130px;
+}
+.navbar-collapse{
+    margin-left: 100px;
+}
+.navbar-dark{
+    padding: 0.5rem 3rem!important;
+}
+.navbar-nav li {
+    padding: 0 50px!important;
+}
+.navbar-nav a
+{
+    float: right;
+    text-align: left;
+    margin: 0px 16px;
+}
+#nav-bar ul li a:hover
+{
+    color:#78d2f2;
+
+}
+.visual{
+    width: 100%;
+}
+.navbar-toggler
+{
+    border: none!important;
+    font-weight: 600;
+    font-size: 16px;
+}
+.btn-primary{
+    color: #00448B!important;
+    font-weight: 500 !important;
+    background-color: #78d2f2!important;
+    border-radius: 2rem!important;
+    border: none!important;
+}
+.btn-primary:hover{
+    color: #fff!important;
+    font-weight: 500 !important;
+    background-color: #00448B!important;
+    border-radius: 2rem!important;
+    border: none!important;
+}
